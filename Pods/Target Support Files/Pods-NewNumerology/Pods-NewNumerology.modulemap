@@ -1,0 +1,6 @@
+framework module Pods_NewNumerology {
+  umbrella header "Pods-NewNumerology-umbrella.h"
+
+  export *
+  module * { export * }
+}
