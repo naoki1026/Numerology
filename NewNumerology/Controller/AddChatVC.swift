@@ -1,5 +1,5 @@
 //
-//  AddThoughtVC.swift
+//  AddChatVC.swift
 //  NewNumerology
 //
 //  Created by Naoki Arakawa on 2019/05/01.
@@ -16,7 +16,7 @@ class AddChatVC: UIViewController, UITextViewDelegate {
   
   @IBOutlet private weak var categorySegment: UISegmentedControl!
   //@IBOutlet private  weak var usernameTxt: UITextField!
-  @IBOutlet private weak var thoughtTxt: UITextView!
+  @IBOutlet private weak var chatTxt: UITextView!
   @IBOutlet private weak var postBtn: UIButton!
   
   //MARK: Variables
@@ -29,10 +29,10 @@ class AddChatVC: UIViewController, UITextViewDelegate {
     super.viewDidLoad()
     
     postBtn.layer.cornerRadius = 4
-    thoughtTxt.layer.cornerRadius = 4
-    thoughtTxt.text = "My random thought..."
-    thoughtTxt.textColor = .lightGray
-    thoughtTxt.delegate = self
+    chatTxt.layer.cornerRadius = 4
+    chatTxt.text = "My random thought..."
+    chatTxt.textColor = .lightGray
+    chatTxt.delegate = self
     
     navigationController?.navigationBar.tintColor = AppColors.navGold
     navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:  AppColors.navGold]
@@ -41,8 +41,8 @@ class AddChatVC: UIViewController, UITextViewDelegate {
   
   //テキストの入力があるたびに呼び出されるデリゲートメソッド
   func textViewDidBeginEditing(_ textView: UITextView) {
-    thoughtTxt.text = ""
-    thoughtTxt.textColor = .darkGray
+    chatTxt.text = ""
+    chatTxt.textColor = .darkGray
     
   }
   
@@ -56,7 +56,7 @@ class AddChatVC: UIViewController, UITextViewDelegate {
       //CATEGORY : selectedCategory,
       NUM_COMMENTS : 0,
       NUM_LIKES : 0,
-      CHAT_TXT : thoughtTxt.text!,
+      CHAT_TXT : chatTxt.text!,
       TIMESTAMP : FieldValue.serverTimestamp(),
       USERNAME : Auth.auth().currentUser?.displayName ?? "",
       USER_ID: Auth.auth().currentUser?.uid ?? ""

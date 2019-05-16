@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Numerology-->
+        <!--　Numerology-->
         <scene sceneID="qyK-zy-pdZ">
             <objects>
                 <viewController storyboardIdentifier="Home" id="Yhc-wl-Y0L" customClass="HomeVC" customModule="NewNumerology" customModuleProvider="target" sceneMemberID="viewController">
@@ -108,13 +108,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IKy-4G-xPs"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Numerology" id="knL-sV-kLW">
-                        <barButtonItem key="leftBarButtonItem" title="ログアウト" id="SJ6-OV-CEO">
-                            <color key="tintColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="pushLogout:" destination="Yhc-wl-Y0L" id="3Sp-cy-3Pq"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="　Numerology" id="knL-sV-kLW">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="fortuneTelling_gold" id="fJU-Qa-ITk">
                             <color key="tintColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>

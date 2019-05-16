@@ -9,6 +9,7 @@
 import UIKit
 import ProgressHUD
 import RealmSwift
+import Firebase
 
 
 class FortuneTellingVC: UIViewController, UITextFieldDelegate {
@@ -38,6 +39,9 @@ class FortuneTellingVC: UIViewController, UITextFieldDelegate {
   let formatterYear = DateFormatter()
   let formatterMonth = DateFormatter()
   let formatterDay = DateFormatter()
+  
+  private var users = [User]()
+  private var user : User!
   
   //画面が読み込まれた瞬間に呼び出される
   override func viewDidLoad() {
@@ -132,7 +136,16 @@ class FortuneTellingVC: UIViewController, UITextFieldDelegate {
     result.balance = balanceNumber
     result.personal = personalNumber
     result.lastUpdate = Int(NSDate().timeIntervalSince1970)
-  
+    
+    if myNumber == 1 {
+      
+      print("書き込み開始")
+      
+      guard let userId = Auth.auth().currentUser?.uid else {return}
+      Firestore.firestore().document("users/\(userId)").updateData(["number" : lifepassNumber])
+      
+    }
+    
     
     do {
       
@@ -199,7 +212,6 @@ class FortuneTellingVC: UIViewController, UITextFieldDelegate {
     
     
   }
-  
 }
 
 //アルファベット以外入力できない

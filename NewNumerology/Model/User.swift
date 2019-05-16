@@ -6,36 +6,57 @@
 //  Copyright © 2019 Naoki Arakawa. All rights reserved.
 //
 
+import Foundation
+import Firebase
+
 class User {
   
-  //attributes
-  //データベース上に保有しているユーザー情報である
-  //辞書型で保有している
-  var username : String!
-  var name : String!
-  var profileImageUrl : String!
-  var uid : String!
-  var isFollowed = false
+  private(set) var username : String!
+  private(set) var timeStamp : Timestamp!
+  private(set) var number : Int!
+  private(set) var userId : String!
+
   
+  init(username : String,  timeStamp: Timestamp, number: Int, userId: String) {
+    
+    self.username = username
+    self.timeStamp = timeStamp
+    self.number = number
+    self.userId = userId
+   
+    
+  }
   
-  init(uid: String, dictionary: Dictionary<String, AnyObject>) {
+  class func parseData(snapshot: QuerySnapshot?) -> [User]{
     
-    self.uid = uid
+    var users = [User]()
     
-    //"username"は辞書型におけるキー値である
-    if let username = dictionary["username"] as? String {
-      self.username = username
+    guard let snap = snapshot else { return users }
+    let currentUid = Auth.auth().currentUser?.uid
+    
+    for document in snap.documents {
       
+      let data = document.data()
+      let username = data[USERNAME] as? String ?? "Anonymous"
+      
+      //timestamp型に変換
+      let timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
+
+      let number = data["number"] as? Int ?? 0
+      
+      let userId = data["userId"] as? String ?? ""
+    
+      
+      let newUser = User(username: username, timeStamp: timeStamp, number: number, userId: userId)
+      
+      if newUser.userId != currentUid {
+        
+        users.append(newUser)
+        
+      }
     }
     
-    if let name = dictionary["name"] as? String {
-      self.name = name
-      
-    }
+    return users
     
-    if let profileImageUrl = dictionary["profileImageUrl"] as? String {
-      self.profileImageUrl = profileImageUrl
-      
-    }
   }
 }

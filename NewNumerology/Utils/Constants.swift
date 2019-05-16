@@ -11,7 +11,7 @@ import ChameleonFramework
 
 struct AppColors {
   
-  static let red = UIColor(red: 255/255, green: 77/255, blue: 77/255, alpha: 1.0)
+  static let red = UIColor(red: 255/255, green: 49/255, blue: 81/255, alpha: 1.0)
   static let orange = UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 1.0)
   static let yellow = UIColor(red: 255/255, green: 231/255, blue: 50/255, alpha: 1.0)
   static let green = UIColor(red: 59/255, green: 175/255, blue: 117/255, alpha: 1.0)
@@ -25,19 +25,27 @@ struct AppColors {
   static let navGold = UIColor(red: 153/255, green: 102/255, blue: 0/255, alpha: 1.0)
   static let inValidBlue = UIColor(red: 149/255, green: 204/255, blue: 244/255, alpha: 1)
   static let validBlue = UIColor(red: 17/255, green: 154/255, blue: 237/255, alpha: 1)
-  
+  static let white = UIColor.white
+  static let lightGold = UIColor(red: 252/255, green: 231/255, blue: 180/255, alpha: 1)
 }
 
-let THOUGHTS_REF = "thoughts"
+
 let USERS_REF = "users"
 let COMMENTS_REF = "comments"
-
+let CHATS_REF = "chats"
 let CATEGORY = "category"
 let NUM_COMMENTS = "numComments"
 let NUM_LIKES = "numLikes"
-let THOGHT_TXT = "thoghtTxt"
+let CHAT_TXT = "chatTxt"
 let TIMESTAMP = "timeStamp"
 let USERNAME = "username"
 let DATE_CREATED = "dataCreated"
 let COMMENT_TXT = "commentTxt"
+let MESSAGE_TXT = "messageText"
 let USER_ID = "userId"
+let FROM_ID = "fromId"
+let TO_ID = "toId"
+
+let adminID = "njz4ERqncpOyHJSOEh0on42HOaQ2"
+
+let specialAuthority = "naoki.arakawa1026@gmail.com"

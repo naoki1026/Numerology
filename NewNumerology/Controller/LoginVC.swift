@@ -36,8 +36,8 @@ class LoginVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    emailTextField.text = "naoki@gmail.com"
-    passwordTextField.text = "12345678"
+    emailTextField.text = "test@test.com"
+    passwordTextField.text = "123456"
     loginButton.backgroundColor = AppColors.validBlue
     
     emailTextField.addTarget(self, action: #selector(formaValidation), for: .editingChanged)
@@ -85,7 +85,7 @@ class LoginVC: UIViewController {
   @IBAction func forgotPassClicked(_ sender: Any) {
     
     //ここでのvcはForgotPasswordVCのことを指す
-    let vc = ForgotPasswordVC()
+    let vc = ForgotPWVC()
     
     //どのように画面に遷移するか
     vc.modalTransitionStyle = .crossDissolve

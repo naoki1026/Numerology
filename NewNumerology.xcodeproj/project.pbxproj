@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B002BD06228AA8DD00B837D3 /* ForgotPWVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B002BD04228AA8DD00B837D3 /* ForgotPWVC.swift */; };
+		B002BD07228AA8DD00B837D3 /* ForgotPWVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B002BD05228AA8DD00B837D3 /* ForgotPWVC.xib */; };
 		B006F07F226DDECB0016EEFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B006F07E226DDECB0016EEFD /* AppDelegate.swift */; };
 		B006F091226DDEEC0016EEFD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B006F090226DDEEC0016EEFD /* Home.storyboard */; };
 		B006F093226DDF000016EEFD /* Numerology.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B006F092226DDF000016EEFD /* Numerology.storyboard */; };
@@ -28,6 +30,8 @@
 		B00F085B22706E1300D1AE54 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F085A22706E1300D1AE54 /* Number.swift */; };
 		B00F085D22706E2500D1AE54 /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F085C22706E2500D1AE54 /* DataSet.swift */; };
 		B00F088122715DB800D1AE54 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F088022715DB800D1AE54 /* ResultTableViewCell.swift */; };
+		B011BCBC228D44E50075FDE3 /* HomeExplanation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011BCBA228D44E50075FDE3 /* HomeExplanation.swift */; };
+		B011BCBD228D44E50075FDE3 /* HomeExplanation.xib in Resources */ = {isa = PBXBuildFile; fileRef = B011BCBB228D44E50075FDE3 /* HomeExplanation.xib */; };
 		B04677252271AFA200A1897E /* SelectNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04677242271AFA200A1897E /* SelectNumberVC.swift */; };
 		B04677292271C70D00A1897E /* SelectNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04677282271C70D00A1897E /* SelectNumberCell.swift */; };
 		B046772B22724A9F00A1897E /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046772A22724A9F00A1897E /* DetailsVC.swift */; };
@@ -43,30 +47,26 @@
 		B04677D22274216A00A1897E /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04677D02274216A00A1897E /* ForgotPasswordVC.swift */; };
 		B04677D32274216A00A1897E /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04677D12274216A00A1897E /* ForgotPasswordViewController.xib */; };
 		B050ED9C2278E25E005C8EE2 /* MessageMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050ED9B2278E25E005C8EE2 /* MessageMainVC.swift */; };
-		B050ED9E2278F1E8005C8EE2 /* AddThoughtVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050ED9D2278F1E8005C8EE2 /* AddThoughtVC.swift */; };
+		B050ED9E2278F1E8005C8EE2 /* AddChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050ED9D2278F1E8005C8EE2 /* AddChatVC.swift */; };
 		B050EDA02278F206005C8EE2 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050ED9F2278F206005C8EE2 /* CommentsVC.swift */; };
 		B050EDA22278F220005C8EE2 /* UpdateCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050EDA12278F220005C8EE2 /* UpdateCommentVC.swift */; };
 		B050EDA42278FB40005C8EE2 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B050EDA32278FB40005C8EE2 /* Message.storyboard */; };
-		B050EDA62279034D005C8EE2 /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050EDA52279034D005C8EE2 /* KeyboardBoundView.swift */; };
-		B050EDA82279036D005C8EE2 /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050EDA72279036D005C8EE2 /* Thought.swift */; };
+		B050EDA82279036D005C8EE2 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050EDA72279036D005C8EE2 /* Chat.swift */; };
 		B050EDAA22790384005C8EE2 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050EDA922790384005C8EE2 /* Comment.swift */; };
-		B050EDAC227903E9005C8EE2 /* ThoughtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050EDAB227903E9005C8EE2 /* ThoughtCell.swift */; };
+		B050EDAC227903E9005C8EE2 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050EDAB227903E9005C8EE2 /* ChatCell.swift */; };
 		B050EDAE22790408005C8EE2 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050EDAD22790408005C8EE2 /* CommentCell.swift */; };
 		B050EDB1227A93FA005C8EE2 /* RomajiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050EDAF227A93FA005C8EE2 /* RomajiViewController.swift */; };
 		B050EDB2227A93FA005C8EE2 /* RomajiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B050EDB0227A93FA005C8EE2 /* RomajiViewController.xib */; };
 		B050EDB4227AC5D5005C8EE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B050EDB3227AC5D5005C8EE2 /* Assets.xcassets */; };
 		B0B5869A227D2E1600DC03E5 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B58699227D2E1600DC03E5 /* SettingVC.swift */; };
-		B0B5869C227D4B8100DC03E5 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B5869B227D4B8100DC03E5 /* ChatVC.swift */; };
-		B0B5869E227D4BBD00DC03E5 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B5869D227D4BBD00DC03E5 /* Chat.storyboard */; };
-		B0B586A0227D51BD00DC03E5 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B5869F227D51BD00DC03E5 /* ChatCell.swift */; };
-		B0B586A4227D5CD200DC03E5 /* NewChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B586A3227D5CD200DC03E5 /* NewChatVC.swift */; };
-		B0B586A6227D5E1A00DC03E5 /* NewChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B586A5227D5E1A00DC03E5 /* NewChatCell.swift */; };
 		B0B586A8227D646700DC03E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B586A7227D646700DC03E5 /* User.swift */; };
 		FDEEDDD8333210F1DE31993E /* Pods_NewNumerology.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02EFA71DA3AD9B0D3604583 /* Pods_NewNumerology.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1C82B0E0DD7EBFA3B97951DB /* Pods-NewNumerology.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewNumerology.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewNumerology/Pods-NewNumerology.debug.xcconfig"; sourceTree = "<group>"; };
+		B002BD04228AA8DD00B837D3 /* ForgotPWVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPWVC.swift; sourceTree = "<group>"; };
+		B002BD05228AA8DD00B837D3 /* ForgotPWVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPWVC.xib; sourceTree = "<group>"; };
 		B006F07B226DDECB0016EEFD /* NewNumerology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewNumerology.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B006F07E226DDECB0016EEFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B006F08A226DDECB0016EEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +90,8 @@
 		B00F085A22706E1300D1AE54 /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		B00F085C22706E2500D1AE54 /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
 		B00F088022715DB800D1AE54 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
+		B011BCBA228D44E50075FDE3 /* HomeExplanation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExplanation.swift; sourceTree = "<group>"; };
+		B011BCBB228D44E50075FDE3 /* HomeExplanation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeExplanation.xib; sourceTree = "<group>"; };
 		B02EFA71DA3AD9B0D3604583 /* Pods_NewNumerology.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewNumerology.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04677242271AFA200A1897E /* SelectNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNumberVC.swift; sourceTree = "<group>"; };
 		B04677282271C70D00A1897E /* SelectNumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNumberCell.swift; sourceTree = "<group>"; };
@@ -106,24 +108,18 @@
 		B04677D02274216A00A1897E /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		B04677D12274216A00A1897E /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		B050ED9B2278E25E005C8EE2 /* MessageMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageMainVC.swift; sourceTree = "<group>"; };
-		B050ED9D2278F1E8005C8EE2 /* AddThoughtVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThoughtVC.swift; sourceTree = "<group>"; };
+		B050ED9D2278F1E8005C8EE2 /* AddChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChatVC.swift; sourceTree = "<group>"; };
 		B050ED9F2278F206005C8EE2 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
 		B050EDA12278F220005C8EE2 /* UpdateCommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCommentVC.swift; sourceTree = "<group>"; };
 		B050EDA32278FB40005C8EE2 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
-		B050EDA52279034D005C8EE2 /* KeyboardBoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
-		B050EDA72279036D005C8EE2 /* Thought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
+		B050EDA72279036D005C8EE2 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		B050EDA922790384005C8EE2 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		B050EDAB227903E9005C8EE2 /* ThoughtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtCell.swift; sourceTree = "<group>"; };
+		B050EDAB227903E9005C8EE2 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		B050EDAD22790408005C8EE2 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		B050EDAF227A93FA005C8EE2 /* RomajiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomajiViewController.swift; sourceTree = "<group>"; };
 		B050EDB0227A93FA005C8EE2 /* RomajiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RomajiViewController.xib; sourceTree = "<group>"; };
 		B050EDB3227AC5D5005C8EE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0B58699227D2E1600DC03E5 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
-		B0B5869B227D4B8100DC03E5 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
-		B0B5869D227D4BBD00DC03E5 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
-		B0B5869F227D51BD00DC03E5 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
-		B0B586A3227D5CD200DC03E5 /* NewChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatVC.swift; sourceTree = "<group>"; };
-		B0B586A5227D5E1A00DC03E5 /* NewChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatCell.swift; sourceTree = "<group>"; };
 		B0B586A7227D646700DC03E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B6BAFA85EB3377089566F7FB /* Pods-NewNumerology.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewNumerology.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewNumerology/Pods-NewNumerology.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,13 +206,11 @@
 				B046772A22724A9F00A1897E /* DetailsVC.swift */,
 				B006F09C226DDF9C0016EEFD /* FortuneTellingVC.swift */,
 				B006F0AC226EA1820016EEFD /* ResultVC.swift */,
+				B050ED9D2278F1E8005C8EE2 /* AddChatVC.swift */,
+				B0B58699227D2E1600DC03E5 /* SettingVC.swift */,
 				B050ED9B2278E25E005C8EE2 /* MessageMainVC.swift */,
-				B050ED9D2278F1E8005C8EE2 /* AddThoughtVC.swift */,
 				B050ED9F2278F206005C8EE2 /* CommentsVC.swift */,
 				B050EDA12278F220005C8EE2 /* UpdateCommentVC.swift */,
-				B0B58699227D2E1600DC03E5 /* SettingVC.swift */,
-				B0B5869B227D4B8100DC03E5 /* ChatVC.swift */,
-				B0B586A3227D5CD200DC03E5 /* NewChatVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -228,7 +222,6 @@
 				B006F090226DDEEC0016EEFD /* Home.storyboard */,
 				B006F092226DDF000016EEFD /* Numerology.storyboard */,
 				B050EDA32278FB40005C8EE2 /* Message.storyboard */,
-				B0B5869D227D4BBD00DC03E5 /* Chat.storyboard */,
 				B006F096226DDF1C0016EEFD /* Setting.storyboard */,
 				B006F0BA226F0E0C0016EEFD /* HomeCollectionCell.swift */,
 				B00F088022715DB800D1AE54 /* ResultTableViewCell.swift */,
@@ -236,12 +229,14 @@
 				B04677282271C70D00A1897E /* SelectNumberCell.swift */,
 				B050EDAF227A93FA005C8EE2 /* RomajiViewController.swift */,
 				B050EDB0227A93FA005C8EE2 /* RomajiViewController.xib */,
+				B050EDAB227903E9005C8EE2 /* ChatCell.swift */,
+				B050EDAD22790408005C8EE2 /* CommentCell.swift */,
+				B002BD04228AA8DD00B837D3 /* ForgotPWVC.swift */,
+				B002BD05228AA8DD00B837D3 /* ForgotPWVC.xib */,
 				B04677D02274216A00A1897E /* ForgotPasswordVC.swift */,
 				B04677D12274216A00A1897E /* ForgotPasswordViewController.xib */,
-				B050EDAB227903E9005C8EE2 /* ThoughtCell.swift */,
-				B050EDAD22790408005C8EE2 /* CommentCell.swift */,
-				B0B5869F227D51BD00DC03E5 /* ChatCell.swift */,
-				B0B586A5227D5E1A00DC03E5 /* NewChatCell.swift */,
+				B011BCBA228D44E50075FDE3 /* HomeExplanation.swift */,
+				B011BCBB228D44E50075FDE3 /* HomeExplanation.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -253,7 +248,7 @@
 				B00F085822706DEC00D1AE54 /* Category.swift */,
 				B00F085A22706E1300D1AE54 /* Number.swift */,
 				B00F085C22706E2500D1AE54 /* DataSet.swift */,
-				B050EDA72279036D005C8EE2 /* Thought.swift */,
+				B050EDA72279036D005C8EE2 /* Chat.swift */,
 				B050EDA922790384005C8EE2 /* Comment.swift */,
 				B0B586A7227D646700DC03E5 /* User.swift */,
 			);
@@ -265,7 +260,6 @@
 			children = (
 				B00F085222705B1700D1AE54 /* Constants.swift */,
 				B04677C4227405C700A1897E /* Extension.swift */,
-				B050EDA52279034D005C8EE2 /* KeyboardBoundView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -345,13 +339,14 @@
 			files = (
 				B006F091226DDEEC0016EEFD /* Home.storyboard in Resources */,
 				B050EDA42278FB40005C8EE2 /* Message.storyboard in Resources */,
+				B011BCBD228D44E50075FDE3 /* HomeExplanation.xib in Resources */,
 				B006F093226DDF000016EEFD /* Numerology.storyboard in Resources */,
 				B046772D2272782600A1897E /* Login.storyboard in Resources */,
 				B006F097226DDF1C0016EEFD /* Setting.storyboard in Resources */,
 				B04677CB22740F4800A1897E /* GoogleService-Info.plist in Resources */,
+				B002BD07228AA8DD00B837D3 /* ForgotPWVC.xib in Resources */,
 				B050EDB2227A93FA005C8EE2 /* RomajiViewController.xib in Resources */,
 				B050EDB4227AC5D5005C8EE2 /* Assets.xcassets in Resources */,
-				B0B5869E227D4BBD00DC03E5 /* Chat.storyboard in Resources */,
 				B04677D32274216A00A1897E /* ForgotPasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,22 +434,19 @@
 				B00F0855227068F600D1AE54 /* CategoryCell.swift in Sources */,
 				B006F0A7226EA0F80016EEFD /* SpiritualNum.swift in Sources */,
 				B006F09B226DDF900016EEFD /* NumerologyVC.swift in Sources */,
+				B011BCBC228D44E50075FDE3 /* HomeExplanation.swift in Sources */,
 				B006F0AF226EA1B60016EEFD /* Error.swift in Sources */,
-				B0B5869C227D4B8100DC03E5 /* ChatVC.swift in Sources */,
 				B00F085922706DEC00D1AE54 /* Category.swift in Sources */,
 				B00F085D22706E2500D1AE54 /* DataSet.swift in Sources */,
 				B04677252271AFA200A1897E /* SelectNumberVC.swift in Sources */,
-				B050EDA82279036D005C8EE2 /* Thought.swift in Sources */,
-				B050ED9E2278F1E8005C8EE2 /* AddThoughtVC.swift in Sources */,
+				B050EDA82279036D005C8EE2 /* Chat.swift in Sources */,
+				B050ED9E2278F1E8005C8EE2 /* AddChatVC.swift in Sources */,
 				B050EDA02278F206005C8EE2 /* CommentsVC.swift in Sources */,
-				B0B586A0227D51BD00DC03E5 /* ChatCell.swift in Sources */,
 				B006F07F226DDECB0016EEFD /* AppDelegate.swift in Sources */,
 				B006F09D226DDF9C0016EEFD /* FortuneTellingVC.swift in Sources */,
 				B046772B22724A9F00A1897E /* DetailsVC.swift in Sources */,
 				B050EDAE22790408005C8EE2 /* CommentCell.swift in Sources */,
-				B050EDA62279034D005C8EE2 /* KeyboardBoundView.swift in Sources */,
 				B006F0B5226EDAF60016EEFD /* Model.swift in Sources */,
-				B0B586A6227D5E1A00DC03E5 /* NewChatCell.swift in Sources */,
 				B046772F22727B0F00A1897E /* LoginVC.swift in Sources */,
 				B0B5869A227D2E1600DC03E5 /* SettingVC.swift in Sources */,
 				B00F085322705B1700D1AE54 /* Constants.swift in Sources */,
@@ -466,12 +458,12 @@
 				B04677292271C70D00A1897E /* SelectNumberCell.swift in Sources */,
 				B04677BF2273E57C00A1897E /* SoulNum.swift in Sources */,
 				B00F085B22706E1300D1AE54 /* Number.swift in Sources */,
+				B002BD06228AA8DD00B837D3 /* ForgotPWVC.swift in Sources */,
 				B006F0AB226EA1320016EEFD /* PersonalNum.swift in Sources */,
 				B04677C32274027E00A1897E /* DefineTabBar.swift in Sources */,
 				B00F088122715DB800D1AE54 /* ResultTableViewCell.swift in Sources */,
 				B04677D22274216A00A1897E /* ForgotPasswordVC.swift in Sources */,
-				B050EDAC227903E9005C8EE2 /* ThoughtCell.swift in Sources */,
-				B0B586A4227D5CD200DC03E5 /* NewChatVC.swift in Sources */,
+				B050EDAC227903E9005C8EE2 /* ChatCell.swift in Sources */,
 				B006F0A9226EA1150016EEFD /* DestinyNum.swift in Sources */,
 				B050EDA22278F220005C8EE2 /* UpdateCommentVC.swift in Sources */,
 				B006F099226DDF860016EEFD /* HomeVC.swift in Sources */,

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="94" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wWv-Q9-oL9">
-                                <rect key="frame" x="0.0" y="184" width="375" height="483"/>
+                                <rect key="frame" x="0.0" y="234" width="375" height="433"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -66,30 +66,30 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aD-Qj-ULd">
-                                <rect key="frame" x="20" y="74" width="335" height="110"/>
+                                <rect key="frame" x="20" y="74" width="335" height="160"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numerology（数秘術について）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aG-Ge-uWg">
-                                        <rect key="frame" x="8" y="8" width="221.5" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <rect key="frame" x="8" y="8" width="227.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数秘術は数は「量」だけではなく、「性質」も表すという前提に基づいた秘術です。生年月日と名前をもとに導き出されたナンバーによって、自分の本質を理解することができます。" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cya-7N-B7s">
-                                        <rect key="frame" x="8" y="34" width="319" height="62.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数秘術は数は「量」だけではなく、「性質」も表すという前提に基づいた占いです。生年月日と名前をもとに導き出されたナンバーによって、自分の本質を理解することができます。 以下で４つのナンバーの詳細を確認することができます。" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cya-7N-B7s">
+                                        <rect key="frame" x="8" y="34" width="319" height="120"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="62.5" id="bpv-Iy-Toq"/>
+                                            <constraint firstAttribute="height" constant="120" id="bpv-Iy-Toq"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="0.56290132705479456" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="0.76300299657534243" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="cya-7N-B7s" firstAttribute="leading" secondItem="3aD-Qj-ULd" secondAttribute="leading" constant="8" id="3y4-wy-YN8"/>
                                     <constraint firstItem="0aG-Ge-uWg" firstAttribute="leading" secondItem="3aD-Qj-ULd" secondAttribute="leading" constant="8" id="8Ts-0A-pex"/>
                                     <constraint firstItem="cya-7N-B7s" firstAttribute="top" secondItem="0aG-Ge-uWg" secondAttribute="bottom" constant="8" id="KeE-Va-LaK"/>
-                                    <constraint firstAttribute="height" constant="110" id="geA-Uc-HSa"/>
+                                    <constraint firstAttribute="height" constant="160" id="geA-Uc-HSa"/>
                                     <constraint firstItem="0aG-Ge-uWg" firstAttribute="top" secondItem="3aD-Qj-ULd" secondAttribute="top" constant="8" id="win-Sh-DkR"/>
                                     <constraint firstAttribute="trailing" secondItem="cya-7N-B7s" secondAttribute="trailing" constant="8" id="xk8-6u-Qax"/>
                                 </constraints>

@@ -17,7 +17,7 @@ class UpdateCommentVC: UIViewController {
   @IBOutlet weak var commentTxt: UITextView!
   @IBOutlet weak var updateBtn: UIButton!
   
-  var commentData : (comment: Comment, thought: Thought)!
+  var commentData : (comment: Comment, chat: Chat)!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,7 +34,7 @@ class UpdateCommentVC: UIViewController {
   
   @IBAction func updateTapped(_ sender: Any) {
     
-    Firestore.firestore().collection(THOUGHTS_REF).document(commentData.thought.documentId).collection(COMMENTS_REF).document(commentData.comment.documentId).updateData([COMMENT_TXT : commentTxt.text!]){(error) in
+    Firestore.firestore().collection(CHATS_REF).document(commentData.chat.documentId).collection(COMMENTS_REF).document(commentData.comment.documentId).updateData([COMMENT_TXT : commentTxt.text!]){(error) in
       
       if error != nil {
         

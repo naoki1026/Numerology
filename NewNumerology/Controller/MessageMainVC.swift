@@ -10,28 +10,20 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-enum ThoughtCategory : String {
-  
-  case funny = "funny"
-  case serious = "serious"
-  case crazy = "crazy"
-  case popular = "popular"
-  
-}
 
-class MessageMainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ThoguhtDelegate {
+class MessageMainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   //MARK:Outlets
-  @IBOutlet private weak var segmentControl: UISegmentedControl!
   @IBOutlet private weak var tableView: UITableView!
   
   
   //Properties
-  //Thoughtクラスを配列の中に入れている
-  private var thoughts = [Thought]()
-  private var thoughtsCollectionRef : CollectionReference!
-  private var thoughtsListener : ListenerRegistration!
-  private var selectedCategory = ThoughtCategory.funny.rawValue
+  //Chatクラスを配列の中に入れている
+  private var chats = [Chat]()
+  private var chatsCollectionRef : CollectionReference!
+  private var chatsListener : ListenerRegistration!
+  private var user : User?
+  private var users = [User]()
   
   //後で追加
   private var handle : AuthStateDidChangeListenerHandle?
@@ -48,143 +40,48 @@ class MessageMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     tableView.rowHeight = UITableView.automaticDimension
     
     //Firestoreのデータを読み込んでいる
-    thoughtsCollectionRef = Firestore.firestore().collection(THOUGHTS_REF)
+    chatsCollectionRef = Firestore.firestore().collection(CHATS_REF)
     
     navigationController?.navigationBar.tintColor = AppColors.navGold
     navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:  AppColors.navGold]
     
+    self.navigationItem.title = "チャット"
+
+   initialDataUpload()
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    
-    handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
-      if user == nil {
-        
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "Login")
-        self.present(loginVC, animated: true, completion: nil)
-        
-        
-      } else {
-        
-        self.setListener()
-        
-      }
-    })
-    
+
     setListener()
     
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     
-    if thoughtsListener != nil {
+    if chatsListener != nil {
       
-      thoughtsListener.remove()
+      chatsListener.remove()
       
     }
   }
   
-  func thoughtOptionsTapped(thought: Thought) {
-    
-    let alert = UIAlertController(title: "Delete", message: "Do you want to delete your thought?", preferredStyle: .actionSheet)
-    let deleteAction = UIAlertAction(title: "Delete Thought", style: .default) { (action) in
-      
-      //delete thought
-      self.delete(collection: Firestore.firestore().collection(THOUGHTS_REF).document(thought.documentId).collection(COMMENTS_REF), completion: { (error) in
-        if let error = error {
-          
-          debugPrint("Could not delete subcollection: \(error.localizedDescription)")
-          
-        } else {
-          
-          Firestore.firestore().collection(THOUGHTS_REF).document(thought.documentId).delete(completion: { (error) in
-            if let error = error {
-              
-              debugPrint("Could not delete thought: \(error.localizedDescription)")
-              
-            } else {
-              
-              alert.dismiss(animated: true, completion: nil)
-              
-            }
-          })
-        }
-      })
-    }
-    
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-    alert.addAction(deleteAction)
-    alert.addAction(cancelAction)
-    present(alert, animated: true, completion: nil)
-    
-  }
-  
-  func delete(collection: CollectionReference, batchSize: Int = 100, completion: @escaping (Error?) -> ()) {
-    
-    collection.limit(to: batchSize).getDocuments { (docset, error) in
-      
-      // An error occured.
-      
-      guard let docset = docset else {
-        
-        completion(error)
-        return
-        
-      }
-      
-      guard docset.count > 0 else {
-        
-        completion(nil)
-        
-        return
-        
-      }
-      
-      let batch = collection.firestore.batch()
-      
-      docset.documents.forEach { batch.deleteDocument($0.reference) }
-      
-      batch.commit { (batchError) in
-        
-        if let batchError = batchError {
-          
-          completion(batchError)
-          
-        } else {
-          
-          self.delete(collection: collection, batchSize: batchSize, completion: completion)
-          
-        }
-      }
-    }
-  }
-  
-  @IBAction func categoryChanged(_ sender: Any) {
-    
-    switch segmentControl.selectedSegmentIndex {
-      
-    case 0: selectedCategory = ThoughtCategory.funny.rawValue
-    case 1: selectedCategory = ThoughtCategory.serious.rawValue
-    case 2: selectedCategory = ThoughtCategory.crazy.rawValue
-    default: selectedCategory = ThoughtCategory.popular.rawValue
-      
-    }
-    
-    thoughtsListener.remove()
-    setListener()
-    
-  }
   
   func setListener(){
     
-    if selectedCategory == ThoughtCategory.popular.rawValue {
+    print("setListener")
+    
+      guard let currentUid = Auth.auth().currentUser?.uid else {return}
+    
+    var docRef : DocumentReference!
+    
+    if currentUid != adminID {
       
-      //カテゴリーの中で、セグメントコントロールで選択されたカテゴリと同じものが抽出されて、日付順表示される。
-      //thoghtsListener = thoughtsCollectionRef.addSnapshotListener { (snapshot, error) in
-      thoughtsListener = thoughtsCollectionRef.order(by: TIMESTAMP, descending: true).addSnapshotListener { (snapshot, error) in
+      docRef = Firestore.firestore().collection(CHATS_REF).document(currentUid)
+      docRef.getDocument { (document, error) in
         
-        print(self.selectedCategory)
+        guard let document = document, document.exists else { return }
+        guard  let data = document.data() else {return}
         
         if let err = error {
           
@@ -193,19 +90,27 @@ class MessageMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         } else {
           
           //ここで削除することによってダブルで表示されなくなる
-          self.thoughts.removeAll()
-          self.thoughts = Thought.parseData(snapshot: snapshot)
+          self.chats.removeAll()
+          let username = data[USERNAME] as? String ?? "Anonymous"
+          //timestamp型に変換
+          let timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
+          let chatTxt = data[CHAT_TXT] as? String ?? ""
+          //let numLikes = data[NUM_LIKES] as? Int ?? 0
+          let numComments = data[NUM_COMMENTS] as? Int ?? 0
+          let documentId = document.documentID
+          let userId = data[USER_ID] as? String ?? ""
+          
+          let newChat = Chat(username: username, documentId: documentId, timeStamp: timeStamp, numComments: numComments, chatText: chatTxt, userId: userId)
+          self.chats.append(newChat)
           self.tableView.reloadData()
           
         }
       }
+      
     } else {
       
-      //カテゴリーの中で、セグメントコントロールで選択されたカテゴリと同じものが抽出されて、日付順表示される。
-      //thoghtsListener = thoughtsCollectionRef.addSnapshotListener { (snapshot, error) in
-      thoughtsListener = thoughtsCollectionRef.whereField(CATEGORY, isEqualTo: selectedCategory).order(by: TIMESTAMP, descending: true).addSnapshotListener { (snapshot, error) in
-        
-        print(self.selectedCategory)
+      chatsListener = chatsCollectionRef.order(by: TIMESTAMP, descending: true).addSnapshotListener { (snapshot, error) in
+
         
         if let err = error {
           
@@ -214,45 +119,55 @@ class MessageMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         } else {
           
           //ここで削除することによってダブルで表示されなくなる
-          self.thoughts.removeAll()
-          guard let snap = snapshot else {return}
-          
-          for document in snap.documents {
-            
-            let data = document.data()
-            let username = data[USERNAME] as? String ?? "Anonymous"
-            
-            //timestamp型に変換
-            let timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
-            let thoghtTxt = data[THOGHT_TXT] as? String ?? ""
-            let numLikes = data[NUM_LIKES] as? Int ?? 0
-            let numComments = data[NUM_COMMENTS] as? Int ?? 0
-            let documentId = document.documentID
-            let userId = data[USER_ID] as? String ?? ""
-            
-            let newThought = Thought(username: username, documentId: documentId, timeStamp: timeStamp, numComments: numComments, numLikes: numLikes, thoughtText: thoghtTxt, userId: userId)
-            
-            self.thoughts.append(newThought)
-            
-          }
-          
+          self.chats.removeAll()
+          self.chats = Chat.parseData(snapshot: snapshot)
           self.tableView.reloadData()
+          
         }
       }
     }
   }
   
-  
+  func initialDataUpload() {
+    
+    guard let currentUid = Auth.auth().currentUser?.uid else {return}
+    if currentUid == adminID {return}
+    
+    let docRef = Firestore.firestore().collection("chats").document(currentUid)
+    docRef.getDocument { (document, error) in
+      
+      if document?.data() == nil {
+        
+        Firestore.firestore().collection(CHATS_REF).document(currentUid).setData([
+          
+          NUM_COMMENTS : 0,
+          CHAT_TXT : "この度は、アプリをダウンロードしていただきありがとうございます。より詳しく話を聞きたい場合は、こちらをクリックしてチャットでご連絡ください。",
+          TIMESTAMP : FieldValue.serverTimestamp(),
+          USERNAME : "数秘術鑑定士",
+          FROM_ID: Auth.auth().currentUser?.uid ?? "",
+          TO_ID: adminID
+          
+          ])
+        
+        self.setListener()
+      
+      } else {
+        
+        print("ok")
+        
+      }
+    }
+  }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return  thoughts.count
+    return  chats.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    if let cell = tableView.dequeueReusableCell(withIdentifier: "thoughtCell", for: indexPath) as? ThoughtCell {
+    if let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as? ChatCell {
       
-      cell.configureCell(thought: thoughts[indexPath.row], delegate: self)
+      cell.configureCell(chat: chats[indexPath.row])
       return cell
       
     } else {
@@ -263,7 +178,7 @@ class MessageMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "toComments", sender: thoughts[indexPath.row])
+    performSegue(withIdentifier: "toComments", sender: chats[indexPath.row])
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -271,9 +186,9 @@ class MessageMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
       
       if let destinationVC = segue.destination as? CommentsVC {
         
-        if let thoght = sender as? Thought {
+        if let thoght = sender as? Chat {
           
-          destinationVC.thought = thoght
+          destinationVC.chat = thoght
           
         }
       }

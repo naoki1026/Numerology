@@ -32,7 +32,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
     
     let attributedTitle = NSMutableAttributedString(string: "すでにアカウントをお持ちの場合", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
     
-    attributedTitle.append(NSAttributedString(string: " ログイン", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: AppColors.validBlue]))
+    attributedTitle.append(NSAttributedString(string: "ログイン", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: AppColors.validBlue]))
     
     //ボタンがタップされたタイミングでhandleShowSignUp関数が発動する
     button.addTarget(self, action: #selector(handlebackLogin), for: .touchUpInside)
@@ -152,15 +152,18 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
         })
 
         guard let userId = authResult?.user.uid else {return}
-        Firestore.firestore().collection("consadole").document(userId).setData([
+        Firestore.firestore().collection(USERS_REF).document(userId).setData([
           USERNAME : username,
-          DATE_CREATED : FieldValue.serverTimestamp()
+          DATE_CREATED : FieldValue.serverTimestamp(),
+          USER_ID : userId
+          
+      
+          
           ], completion: { (error) in
 
             if error != nil {
 
-           ProgressHUD.showError("エラーが発生しています")
-            debugPrint(error?.localizedDescription)
+        ProgressHUD.showError("エラーが発生しています")
 
             } else {
 
@@ -172,7 +175,6 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
         //インディケーターを止める
         self.activityIndicator.stopAnimating()
         ProgressHUD.showSuccess("登録に成功しました")
-        
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
           //戻る
           self.dismiss(animated: true, completion: nil)

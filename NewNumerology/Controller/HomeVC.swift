@@ -36,7 +36,7 @@ class HomeVC: UIViewController {
 
     if userDefault.bool(forKey: "firstLaunch") {
       userDefault.set(false, forKey: "firstLaunch")
-      //initialData()
+      homeExplanation()
       
     }
     
@@ -45,6 +45,8 @@ class HomeVC: UIViewController {
         results = results.sorted(byKeyPath: "lastUpdate", ascending: false)
     
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: AppColors.navGold]
+    
+   
 
     }
   
@@ -93,6 +95,18 @@ class HomeVC: UIViewController {
       
     }
   }
+  
+  func homeExplanation(){
+    
+    let vc = HomeExplanation()
+    
+    //どのように画面に遷移するか
+    vc.modalTransitionStyle = .crossDissolve
+    vc.modalPresentationStyle = .overCurrentContext
+    present(vc, animated: true, completion: nil)
+    
+  }
+  
 }
 
 extension HomeVC:  UITableViewDelegate, UITableViewDataSource {
