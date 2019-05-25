@@ -95,7 +95,7 @@ class DataSet {
   
     
     Detail(title : 11,
-      label1: "AppColors.silver",
+      label1: "繊細な感性と、敏感な精神性を持つ。自分だけのロマンチックな世界を持ち、インスピレーション力に優れた感覚派である",
       label2: "直感力、理想が強い、言葉の力が強い、人のことがよくわかる、霊感、ピュアな心、繊細で傷つきやすい、敏感、天然、妄想する力",
       imageName: "stars",
       color: AppColors.silver,
